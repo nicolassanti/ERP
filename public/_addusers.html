@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hasar</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="./stylesheets/styles.css">
+</head>
+
+<body>
+
+  <div class="navbar-nav">
+   <!-- SEARCH FORM -->
+   <form class="form-inline ml-3">
+    <div class="input-group input-group-sm">
+      <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+      <div class="input-group-append">
+        <button class="btn btn-navbar" type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+
+
+  </div>
+
+
+  <div class="sidebar">
+
+
+    <!-- campos para ingreso de datos -->
+     <form action="/users" method="POST">
+      <label for="fname">Nombre:</label><br>
+      <input type="text" id="fname" name="fname"><br>
+      <label for="lname">Apellido:</label><br>
+      <input type="text" id="lname" name="lname"><br>
+      <label for="password">Password:</label><br>
+      <input type="text" id="password" name="passWrd"><br>
+
+      <label>Email </label><br>
+      <input type="email" id="email" name="email">
+      <br> <br>
+
+      <label>Cargo</label>
+      <select id="cargo" class=".dropdown-menu" name="rol">
+        <option>Vendedor</option>
+        <option>Supervisor</option>
+        <option>Encargado</option>
+        <option>Administrativo</option>
+        <option>RRHH</option>
+        <option>Gerente</option>
+      </select> 
+      <br>
+      <input type="submit" id="enviar" value="Enviar">
+    </form> -->
+
+    <!-- <section class="content">
+      <div class="container">
+      <div class="row">
+      
+      <div class="col-md-12">
+      
+      <div class="card card-primary">
+      <div class="card-header">
+       <h3 class="card-title">Inicio de sesion</small></h3>
+      </div>
+      
+      
+      <form id="quickForm" novalidate="novalidate">
+      <div class="card-body">
+      <div class="form-group">
+      <label for="exampleInputEmail1"></label>
+      <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Usuario">
+      </div>
+      <div class="form-group">
+      <label for="exampleInputPassword1"></label>
+      <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+      </div>
+      <div class="form-group mb-0">
+      <div class="custom-control custom-checkbox">
+    </div>
+      </div>
+      </div>
+      
+      <div class="card-footer">
+      <button type="submit" class="btn btn-primary">Ingresar</button>
+      </div>
+      </form>
+      </div>
+      
+      </div>
+      
+      
+      <div class="col-md-6">
+      </div>
+      
+      </div>
+      
+      </div>
+      </section> -->
+
+  </div>
+
+
+
+  <div class="content">
+
+    <input type="number">
+    
+  </div>
+  <div class="footer">
+    <a href="index.html">Home</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="ab_usr.html">Alta y baja de Usr</a>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+  <script src="./javascripts/functions.js"></script>
+</body>
+
+</html>

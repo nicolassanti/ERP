@@ -1,8 +1,12 @@
-import { Router } from "express";
+const { Router } =require ("express");
 const router = Router()
 
+const {...authCtrl} = require("../controllers/auths.controller ");
+
+router.post('/signin',authCtrl.signin)
+
+router.get('/signout', authCtrl.signout)
 
 
 
-
-export default router;
+module.exports=router;

@@ -10,10 +10,10 @@ exports.signin = async (req, res) => {
       console.log(userbd.fname + " " + userbd.lname + " se ha logueado.");
       let userToSend = {
         username: userbd.fname,
-        lname: userbd.lname,
+        lastname: userbd.lname,
         functions: userbd.permission,
       };
-      const accTkn = jwt.sign(userToSend, process.env.ACCESS_SECRET);
+      const accTkn = jwt.sign(userToSend, process.env.ACCESS_SECRET,{ expiresIn: '15m' });
       res.status(201).send({ token: accTkn });
     } else {
       console.log(userbd.fname + " " + userbd.lname + " intentó loguearse.");
@@ -27,19 +27,4 @@ exports.signin = async (req, res) => {
 
 exports.signout = async (req, res) => {
   res.status(200).send("Usuario deslogueado");
-};
-
-exports.authToken = (req, res, next) => {
-  const authHeader = req.headers.authorization;
-  try {
-    const tokenRecieved = authHeader && authHeader.split(" ")[1];
-    if (!tokenRecieved) return res.status(401).send("User not logged");
-
-    jwt.verify(tokenRecieved, process.env.ACCESS_SECRET, (err, user) => {
-      if (err) return res.status(403).send("Usuario no logueado");
-      next();
-    });
-  } catch (error) {
-    res.status(500).send(error);
-  }
 };

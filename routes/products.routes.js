@@ -1,20 +1,20 @@
 const { Router } =require ("express");
 const router = Router()
-
+const authToken=require("../Middlewares/authToken")
 const productCtrl=require("../controllers/products.controller");
-const authCtrl=require("../controllers/auths.controller ");
+const pagination=require("../Middlewares/pagination")
 
-router.post('/',authCtrl.authToken, productCtrl.addProduct)
+router.post('/',authToken, productCtrl.addProduct)
 
-router.get('/',authCtrl.authToken, productCtrl.getProducts)
+router.get('/',authToken,productCtrl.getProducts)
 
-router.get('/:id',authCtrl.authToken, productCtrl.getProductById)
+router.get('/:id',authToken, productCtrl.getProductById)
 
-router.put('/:id',authCtrl.authToken, productCtrl.updateProductById)
+router.put('/:id',authToken, productCtrl.updateProductById)
 
-router.post('/:id/provider/:id',authCtrl.authToken, productCtrl.addSupplierToProductById)
+router.post('/:id/provider/:id',authToken, productCtrl.addSupplierToProductById)
 
-router.delete('/:id',authCtrl.authToken, productCtrl.deleteProductById)
+router.delete('/:id',authToken, productCtrl.deleteProductById)
 
 
 

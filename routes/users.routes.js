@@ -1,17 +1,18 @@
 const { Router } =require ("express");
 const router = Router()
 
+const authToken=require("../Middlewares/authToken")
 const {...userCtrl} = require("../controllers/users.controller");
 
-router.post('/', userCtrl.adduser)
+router.post('/',authToken, userCtrl.adduser)
 
-router.get('/', userCtrl.getusers)
+router.get('/',authToken, userCtrl.getusers)
 
-router.get('/:id', userCtrl.getuserById)
+router.get('/:id',authToken, userCtrl.getuserById)
 
-router.put('/:id', userCtrl.updateuserById)
+router.put('/:id',authToken, userCtrl.updateuserById)
 
-router.delete('/:id', userCtrl.deleteuserById)
+router.delete('/:id',authToken, userCtrl.deleteuserById)
 
 
 module.exports=router;

@@ -11,7 +11,9 @@
 
  const app = express();
 
-app.use(logger('combined'));
+
+
+app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -20,5 +22,7 @@ app.use('/products', productsRouter);
 app.use('/supliers', supliersRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authsRouter);
+
+
 
 module.exports = app;

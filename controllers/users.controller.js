@@ -32,8 +32,15 @@ exports.adduser = async (req, res) => {
 
 exports.getusers = async (req, res) => {
   const usrsFromDB = await User.find();
+  console.log(usrsFromDB);
   try {
     if (usrsFromDB) {
+    // let userToSend = {
+    //   nombre: usrsFromDB.name,
+    //   apellido: usrsFromDB.lastName,
+    //   correoE: usrsFromDB.emmail,
+    //   permission: usrsFromDB.functions,
+    // }
       res.status(201).json(usrsFromDB);
     } else {
       res.status(500).send("Error en lectura de usuario");

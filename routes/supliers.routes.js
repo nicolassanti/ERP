@@ -1,17 +1,18 @@
 const { Router } =require ("express");
 const router = Router()
 
+const authToken=require("../Middlewares/authToken")
 const {...suplierCtrl} = require("../controllers/supliers.controller");
 
-router.post('/', suplierCtrl.addsuplier)
+router.post('/',authToken, suplierCtrl.addsuplier)
 
-router.get('/', suplierCtrl.getsupliers)
+router.get('/',authToken, suplierCtrl.getsupliers)
 
-router.get('/:id', suplierCtrl.getsuplierById)
+router.get('/:id',authToken, suplierCtrl.getsuplierById)
 
-router.put('/:id', suplierCtrl.updatesuplierById)
+router.put('/:id',authToken, suplierCtrl.updatesuplierById)
 
-router.delete('/:id', suplierCtrl.deletesuplierById)
+router.delete('/:id',authToken, suplierCtrl.deletesuplierById)
 
 
 module.exports=router;

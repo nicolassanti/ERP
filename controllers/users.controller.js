@@ -14,7 +14,7 @@ exports.adduser = async (req, res) => {
       lname: user.lastName,
       email: user.emmail,
       passWrd: user.passsword,
-      permission: user.functions,
+      permission: user.roles,
     });
     try {
       const userSaved = await newuser.save();
@@ -24,7 +24,6 @@ exports.adduser = async (req, res) => {
         res.status(500).send("Error al guardar usuario");
       }
     } catch (error) {
-      console.log(error);
       res.status(500).send("Error al guardar usuario");
     }
   }
@@ -32,7 +31,6 @@ exports.adduser = async (req, res) => {
 
 exports.getusers = async (req, res) => {
   const usrsFromDB = await User.find();
-  console.log(usrsFromDB);
   try {
     if (usrsFromDB) {
     // let userToSend = {
@@ -66,16 +64,31 @@ exports.getuserById = async (req, res) => {
 };
 
 exports.updateuserById = async (req, res) => {
-  const id = req.params.id;
-  const body = req.body;
+  const usuario = req.body;
+  const id=req.params.id
+  console.log('v ID RECIBIDO v');
+  console.log(id);
+  console.log('v USUARIO RECIBIDO v');
+  console.log(usuario);
+
+  const udpatedUser = {
+    fname: usuario.name,
+    lname: usuario.lastName,
+    email: usuario.emmail,
+    passWrd: usuario.passsword,
+    permission: usuario.roles,
+  };
+  console.log('v USUARIO A MODIFICAR v');
+  console.log(udpatedUser);
 
   try {
-    const newusrByID = await User.findByIdAndUpdate(id, { ...body });
+    const newusrByID = await User.findByIdAndUpdate(id, { ...udpatedUser });
+    console.log('v USUARIO MODIFICADO v');
     console.log(newusrByID);
     if (newusrByID) {
       res.status(201).json(newusrByID);
     } else {
-      res.status(500).send("Error en actualizacion de usuario");
+      res.status(500).send(">>Error en actualizacion de usuario<<");
     }
   } catch (error) {
     console.log(error);

@@ -82,7 +82,7 @@ exports.updateuserById = async (req, res) => {
   // console.log(udpatedUser);
 
   try {
-    const newusrByID = await User.findByIdAndUpdate(id, { ...udpatedUser },{options.returnDocument='after'});
+    const newusrByID = await User.findByIdAndUpdate(id, { ...udpatedUser },{returnDocument='after'});
     // console.log('v USUARIO MODIFICADO v');
     // console.log(newusrByID);
     if (newusrByID) {

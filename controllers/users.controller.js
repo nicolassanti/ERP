@@ -66,10 +66,10 @@ exports.getuserById = async (req, res) => {
 exports.updateuserById = async (req, res) => {
   const usuario = req.body;
   const id=req.params.id
-  console.log('v ID RECIBIDO v');
-  console.log(id);
-  console.log('v USUARIO RECIBIDO v');
-  console.log(usuario);
+  // console.log('v ID RECIBIDO v');
+  // console.log(id);
+  // console.log('v USUARIO RECIBIDO v');
+  // console.log(usuario);
 
   const udpatedUser = {
     fname: usuario.name,
@@ -78,13 +78,13 @@ exports.updateuserById = async (req, res) => {
     passWrd: usuario.passsword,
     permission: usuario.roles,
   };
-  console.log('v USUARIO A MODIFICAR v');
-  console.log(udpatedUser);
+  // console.log('v USUARIO A MODIFICAR v');
+  // console.log(udpatedUser);
 
   try {
-    const newusrByID = await User.findByIdAndUpdate(id, { ...udpatedUser });
-    console.log('v USUARIO MODIFICADO v');
-    console.log(newusrByID);
+    const newusrByID = await User.findByIdAndUpdate(id, { ...udpatedUser },{options.returnDocument='after'});
+    // console.log('v USUARIO MODIFICADO v');
+    // console.log(newusrByID);
     if (newusrByID) {
       res.status(201).json(newusrByID);
     } else {

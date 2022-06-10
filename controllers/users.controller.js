@@ -33,12 +33,12 @@ exports.getusers = async (req, res) => {
   const usrsFromDB = await User.find();
   try {
     if (usrsFromDB) {
-    // let userToSend = {
-    //   nombre: usrsFromDB.name,
-    //   apellido: usrsFromDB.lastName,
-    //   correoE: usrsFromDB.emmail,
-    //   permission: usrsFromDB.functions,
-    // }
+      // let userToSend = {
+      //   nombre: usrsFromDB.name,
+      //   apellido: usrsFromDB.lastName,
+      //   correoE: usrsFromDB.emmail,
+      //   permission: usrsFromDB.functions,
+      // }
       res.status(201).json(usrsFromDB);
     } else {
       res.status(500).send("Error en lectura de usuario");
@@ -65,7 +65,7 @@ exports.getuserById = async (req, res) => {
 
 exports.updateuserById = async (req, res) => {
   const usuario = req.body;
-  const id=req.params.id
+  const id = req.params.id;
   // console.log('v ID RECIBIDO v');
   // console.log(id);
   // console.log('v USUARIO RECIBIDO v');
@@ -82,7 +82,11 @@ exports.updateuserById = async (req, res) => {
   // console.log(udpatedUser);
 
   try {
-    const newusrByID = await User.findByIdAndUpdate(id, { ...udpatedUser },{returnDocument='after'});
+    const newusrByID = await User.findByIdAndUpdate(
+      id,
+      { ...udpatedUser },
+      { returnDocument: "after" }
+    );
     // console.log('v USUARIO MODIFICADO v');
     // console.log(newusrByID);
     if (newusrByID) {

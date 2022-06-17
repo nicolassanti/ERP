@@ -8,6 +8,7 @@
  const supliersRouter = require('./routes/supliers.routes');
  const usersRouter = require('./routes/users.routes');
  const authsRouter = require('./routes/auth.routes');
+ const filesRouter = require('./routes/files.routes');
 
  const app = express();
 
@@ -22,6 +23,7 @@ app.use('/products', productsRouter);
 app.use('/supliers', supliersRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authsRouter);
+app.use('/files', filesRouter);
 
 
 

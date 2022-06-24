@@ -1,38 +1,51 @@
-const IVA = require("../models/IVA");
+const Iva = require("../models/Iva");
 const bcryptjs = require("bcryptjs");
 
-exports.addiva = async (req, res) => {
+exports.addIva = async (req, res) => {
 
+  const listatIva = await Iva.find()
+  if (listatIva) {
+    console.log(listatIva)
+    res.status(201).json(listatIva) 
+  } else {
+    res.status(500).send({error:"Error interno al leer iva"})
+  }
 
-  //Agregar IVA
+  //Agregar Iva
 
 };
 
-exports.getiva = async (req, res) => {
+exports.getIva = async (req, res) => {
   
-  //LISTAR IVA
+  const listatIva = await Iva.find()
+
+
+
+  if (listatIva) {
+    console.log(listatIva)
+    res.status(201).json({listatIva}) 
+  } else {
+    res.status(500).send({error:"Error interno al leer iva"})
+  }
+};
+
+exports.getIvaById = async (req, res) => {
+    //Modificar Iva
+
 
 };
 
-exports.getivaById = async (req, res) => {
+exports.updateIvaById = async (req, res) => {
+
+  //Actualizar Iva Especifico
+
+
+};
+
+exports.deleteIvaById = async (req, res) => {
   
 
-  //Modificar IVA
-
-
-};
-
-exports.updateivaById = async (req, res) => {
-
-  //Actualizar IVA Especifico
-
-
-};
-
-exports.deleteivaById = async (req, res) => {
-  
-
-  //Eliminar IVA
+  //Eliminar Iva
 
 
 

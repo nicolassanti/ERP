@@ -1,9 +1,8 @@
 const { Schema, model } = require("mongoose");
 
-const userSchema = new Schema(
+const ivaSchema = new Schema(
   {
     //CodigoIVA	PorcIVA	Codigo_FE	CodigoAlt
-
     codIVA: { type: Number, required: true },
     porcIVA: { type: String, lowercase: true, required: true },
     codFE: { type: String, lowercase: true, required: true },
@@ -12,7 +11,8 @@ const userSchema = new Schema(
   {
     timestamp: true,
     versionKey: false,
+    collection: "iva"
   }
 );
 
-module.exports = model("IVA", userSchema);
+module.exports = model("Iva", ivaSchema);

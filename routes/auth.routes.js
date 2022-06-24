@@ -1,7 +1,7 @@
-const { Router } =require ("express");
+const {...authCtrl} = require("../controllers/auths.controller ");
+const { Router } = require ("express");
 const router = Router()
 
-const {...authCtrl} = require("../controllers/auths.controller ");
 
 router.post('/signin',authCtrl.signin)
 

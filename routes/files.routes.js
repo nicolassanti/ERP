@@ -4,7 +4,7 @@ const router = Router()
 const authToken=require("../Middlewares/authToken")
 const {...filesCtrl} = require("../helpers/product.loader");
 
-router.post('/products', filesCtrl.loadProduct)
+router.post('/products',authToken, filesCtrl.loadProduct)
 
 // router.get('/',authToken, userCtrl.getusers)
 

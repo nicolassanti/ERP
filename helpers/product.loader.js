@@ -1,6 +1,10 @@
 exports.loadProduct =async (req,res)=>{
 
-console.log(req)
-req.body
+    if (req.files === null||req.files === undefined) {
+        res.status(200).json({ error: 'No file uploaded' });
+    } else {
+        console.log(req.files)
+        res.json({ msg: 'file uploaded successfully' });
+    }
 
 }

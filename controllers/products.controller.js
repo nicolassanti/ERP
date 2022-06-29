@@ -12,7 +12,7 @@ exports.addProduct = async (req, res) => {
     const productSaved = await newProduct.save();
     console.log(productSaved);
     if (productSaved) {
-      res.status(201).json(productSaved);
+      res.status(201).send(productSaved);
     } else {
       res.status(500).send("Error al guardar producto");
     }
